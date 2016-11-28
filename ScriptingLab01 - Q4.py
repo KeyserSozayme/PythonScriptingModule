@@ -1,43 +1,43 @@
-# Define the values of canadian coins.
-valueQuarter = 0.25
-valueDime = 0.10
-valueNickel = 0.05
-valuePenny = 0.01
+#!/usr/bin/env python
+from decimal import getcontext, Decimal
 
-# Define the 'default' number of coins that are in our starting value.
-numQuarters = 0
-numDimes = 0
-numNickels = 0
-numPennies = 0
+#
+getcontext().prec = 2
 
 # Define the amount of money we would like to break into coins.
-valueStart = 3.73
+valueStart = Decimal(input("What is the Value of money you would like to break down into coins?: $"))
 valueDecrimented = valueStart
 
-# Determine the amount of Quarters and subtract that from our starting total.
-numQuarters = valueDecrimented // valueQuarter
-valueDecrimented -= (numQuarters * valueQuarter)
+# Define the values of canadian coins.
+valueQuarter, valueDime, valueNickel, valuePenny = Decimal(0.25), Decimal(0.10), Decimal(0.05), Decimal(0.01)
 
-# Do the same with Dimes.
-numDimes = valueDecrimented // valueDime
+# Define the 'default' number of coins that are in our starting value.
+numQuarters, numDimes, numNickels, numPennies = Decimal(0), Decimal(0), Decimal(0), Decimal(0)
+
+print(valueDecrimented)
+
+# Determine the amount of Quarters and subtract that from our starting total.
+numQuarters = (valueDecrimented // valueQuarter)
+valueDecrimented -= (numQuarters * valueQuarter)
+print(valueDecrimented)
+
+# Determine the amount of Dimes that are left after subtracting the value of all the quarters.
+numDimes = (valueDecrimented // valueDime)
 valueDecrimented -= (numDimes * valueDime)
+print(valueDecrimented)
 
 # Do the same with Nickels.
-numNickel = valueDecrimented // valueNickel
+numNickel = (valueDecrimented // valueNickel)
 valueDecrimented -= (numNickels * valueNickel)
+print(valueDecrimented)
 
 # Do the same with Pennies.
-numPennies = valueDecrimented // valuePenny
+numPennies = (valueDecrimented // valuePenny)
 valueDecrimented -= (numPennies * valuePenny)
+print(valueDecrimented)
 
-print(valueDecrimented,
-      valueStart,
-      numQuarters,
-      numDimes,
-      numNickels,
-      numPennies)
-
-
-
-
-
+print("Starting Money: $"+ str(valueStart)+"\n"+
+      "# of Quarters: "+ str(numQuarters)+"\n"+
+      "# of Dimaes: "+ str(numDimes)+"\n"+
+      "# of Nickels: "+ str(numNickels)+"\n"+
+      "# of Pennies: "+ str(numPennies))
