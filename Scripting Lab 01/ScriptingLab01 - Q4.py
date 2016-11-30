@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
 # Define the amount of money we would like to break into coins.
-valueStart = float(input("What is the Value of money you would like to break down into coins?: $"))
+# I am multiplying our values by 100 so we can use integers and avoid the innacuracies of using floats
+valueStart = int(float(input("What is the Value of money you would like to break down into coins?: $")) * 100)
 valueDecrimented = valueStart
 
-# Define the values of canadian coins.
-valueQuarter, valueDime, valueNickel, valuePenny = 0.25, 0.10, 0.05, 0.01
+# Define the values of canadian coins. (x100)
+valueQuarter, valueDime, valueNickel, valuePenny = 25, 10, 5, 1
 
 # Define the 'default' number of coins that are in our starting value.
 numQuarters, numDimes, numNickels, numPennies = 0, 0, 0, 0
@@ -28,7 +29,7 @@ valueDecrimented -= (numPennies * valuePenny)
 
 # Output the results of the program
 print(
-    "\nStarting money:    $"  + str(valueStart) +
+    "\nStarting money:    $"  + str(float(valueStart) / 100) +
     "\nNumber of Quarters: "  + str(numQuarters) +
     "\nNumber of Dimes:    "  + str(numDimes) +
     "\nNumber of Nickels:  "  + str(numNickels) +
