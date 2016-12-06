@@ -9,4 +9,4 @@ while (varRunningTotal <= 1000):
     varRunningTotal += int(input("The current total is " + str(varRunningTotal) + ", enter an integer to add to that total.: "))
     
 # The while loop has been broken, this just tells us what the total was when we left the loop.
-print("\nThe Total was " + str(varRunningTotal) + ",\nExiting program...\n")
+input("\nThe Total was " + str(varRunningTotal) + ",\nPress Enter to Continue")

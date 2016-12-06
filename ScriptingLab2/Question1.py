@@ -17,3 +17,5 @@ while (Counter < 100):
 
     # Increment 'Counter' by 1 and start again.
     Counter += 1
+
+input("\nPress Enter to Continue...")
