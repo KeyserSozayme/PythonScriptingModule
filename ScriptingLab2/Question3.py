@@ -22,7 +22,7 @@ print("You asked for this.\n")
 # Cycle throught the inputted string and set 'i' as each character.
 for i in strSentence:
     # If i is in the list of uppercase vowels
-    if st(i in listUpperVowels):
+    if (i in listUpperVowels):
         # Set indexUpper to the index of (i + 1) in the list of uppercase vowels
         indexUpper = (listUpperVowels.index(i) + 1)
         # If i is an index higher than the length of the list, set it to 0
